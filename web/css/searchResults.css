@@ -1,0 +1,681 @@
+/*Courses results CSS inizio*/
+body.searchResults{
+    margin: 0;
+    padding: 0;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    background: url("../resources/images/backgroundLogin.jpg") no-repeat center center fixed; /*va cambiato*/
+    background-size: cover;
+}
+
+div.resultsContainer{
+    margin: 0 14% 20% 14%;
+    width: 70%;
+    padding: 0;
+    background-color: rgba(34, 34, 34, 0.7);
+    min-height: 100%;
+}
+
+.resultsContainer .result-list-box{
+    padding: 5%;
+}
+
+.resultsContainer .result-box {
+    color: lightgrey;
+    width: 100%;
+    min-height: 10%;
+    max-height: 100%;
+    height: 100%;
+    margin-bottom: 20%;
+    display: block;
+}
+
+.buttonform{
+    width: 100%;
+    height: 40%;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    background-size: cover;
+}
+
+.courseImg{
+    width: 100%;
+    height: 100%;
+    transform: translateY(-19.8%);
+    text-align: center;
+    vertical-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.resultsContainer button{
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: 20%;
+    padding: 0;
+    background: rgba(48, 48, 48, .5);
+    border: none;
+    border-bottom: 5px solid forestgreen;
+    font-size: large;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.resultsContainer button:hover{
+    background: rgba(23, 18, 48, .5);
+}
+
+/*pagination inizio*/
+.pagination{
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.pagination span {
+    display: none;
+    visibility: hidden;
+    float: left;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.pagination span.visible {
+    display: unset;
+    visibility: visible;
+}
+
+.pagination span.current {
+    background-color: forestgreen;
+    color: white;
+}
+
+.pagination span:hover {
+    background-color: #404040;
+}
+
+.pagination span.current:hover{
+    background-color: green;
+}
+
+.resultsContainer .coursePage{
+    display: none;
+}
+
+.resultsContainer .coursePage.visible{
+    display: block;
+}
+
+/*pagination fine*/
+@media screen and (max-width: 342px) {
+    div.resultsContainer{
+        margin: 0 1% 0 1%;
+        width: auto;
+    }
+
+    .resultsContainer .buttonform{
+        height: 30%;
+    }
+
+    .resultsContainer .result-box p{
+        font-size: 90%;
+    }
+}
+
+@media screen and (min-width: 343px) and (max-width: 600px){
+    div.resultsContainer{
+        margin: 0 1% 20% 1%;
+        width: auto;
+    }
+
+    .resultsContainer .buttonform{
+        height: 30%;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px){
+    .resultsContainer .buttonform{
+        height: 30%;
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1100px){
+    .resultsContainer .buttonform{
+        height: 35%;
+    }
+}
+
+@media screen and (min-width: 1101px) {
+    .resultsContainer .result-box p{
+        font-size: 120%;
+    }
+
+    .resultsContainer .buttonform button span {
+        font-size: xx-large;
+    }
+
+    .resultsContainer .buttonform {
+        min-height: 60%;
+    }
+}
+
+/*title inizio*/
+body.searchResults #pageTitle{
+    text-align: center;
+    margin-top: 7%;
+    line-height: 1.25;
+    text-transform: uppercase;
+    font-size: 200%;
+    letter-spacing: 0.1em;
+    font-family: 'Raleway', Calibri, Arial, sans-serif;
+}
+
+body.searchResults #pageTitle .thin{
+    font-weight: 200;
+}
+
+@media only screen and (min-width: 451px) and (max-width: 768px) {
+    body.searchResults #pageTitle {
+        font-size: 180%;
+    }
+}
+
+@media only screen and (min-width: 371px) and (max-width: 450px) {
+    body.searchResults #pageTitle {
+        font-size: 150%;
+    }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 370px) {
+    body.searchResults #pageTitle {
+        font-size: 150%;
+    }
+}
+
+@media only screen and (max-width: 320px){
+    body.searchResults #pageTitle {
+        font-size: 110%;
+    }
+}
+/*title fine*/
+
+/*Filter modal inizio*/
+.filter-bar{
+    height: 1%;
+    padding: 16px;
+    display: none;
+}
+
+.filter-bar.visible {
+    display: block;
+}
+
+.filter-bar::selection {
+    display: none;
+}
+
+.filterContainer i {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.filter-dropdown{
+    color: rgba(255,255,255,0.8);
+    transition: color 0.2s ease;
+    cursor: pointer;
+    margin-right: 16px;
+}
+
+.edit-filter-modal {
+    background-color: rgba(32, 32, 32, 0.90);
+    width: 33%;
+    position: absolute;
+    border: 1px forestgreen solid;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.25s ease, visibility 0.25s ease;
+    transform-origin: 0 0;
+    padding: 14px 10px;
+    display: inline-block;
+    text-align: center;
+    transform: translate(80%, -70.5%);
+    z-index: 3;
+}
+
+.filterContainer select{
+    width: 100%;
+    height: 32px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    margin-bottom: 16px;
+}
+
+.filterContainer input{
+    width: 100%;
+    height: 32px;
+    border-radius: 3px;
+    margin-bottom: 16px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+/*Checkbox styling inizio*/
+.filter-textbox input[type="checkbox"] {
+    position: relative;
+    width: 1.3em;
+    height: 1.3em;
+    color: black;
+    border: 1px solid gray;
+    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearence: none;
+    -ms-appearence: none;
+    appearance: none;
+    outline: 0;
+    cursor: pointer;
+    transition: background 175ms;
+    margin: 2px;
+    transform: translateY(-2.5px);
+}
+
+.filter-textbox input[type="checkbox"]::before {
+    position: absolute;
+    content: '';
+    display: block;
+    top: -5px;
+    left: 7px;
+    width: 50%;
+    height: 100%;
+    border-style: solid;
+    border-color: white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+
+.filter-textbox input[type="checkbox"]:checked {
+    color: white;
+    border-color: green;
+    background: green;
+}
+.filter-textbox input[type="checkbox"]:checked::before {
+    opacity: 1;
+}
+/*Checkbox styling fine*/
+
+button.filterButton {
+    color: lightgrey;
+    padding: 5% 10%;
+    border: none;
+    border-radius: 3px;
+    width: 40%;
+    min-width: fit-content;
+    margin-top: 5%;
+    margin-left: 5%;
+    text-align: center;
+    font-size: 100%;
+    display: inline-block;
+    float: none;
+}
+
+button.filterButton.apply-button{
+    background-color: forestgreen;
+}
+
+button.filterButton.close-button{
+    background-color: #c75450;
+}
+
+.hidden{
+    transform: scale(0.05);
+    visibility: hidden;
+}
+
+.filter-textbox{
+    width: 100%;
+    overflow: hidden;
+    font-size: 85%;
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom: 1px solid forestgreen;
+}
+
+.filter-textbox i{
+    width: 26px;
+    float: left;
+    text-align: center;
+}
+
+.filter-textbox input{
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 100%;
+    float: left;
+    margin: 0 10px;
+}
+
+#errorMessage{
+    color: #c75450;
+}
+
+@media (hover: none) and (any-hover: none){ /*se hover non è attivo rimuoviamo gli effetti hover*/
+    button.filterButton.apply-button:active{
+        background-color: green;
+    }
+
+    button.filterButton.close-button:active{
+        background-color: #c2423d;
+    }
+
+    .filter-dropdown:active{
+        color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+@media (hover: hover) and (any-hover: hover){ /*se hover è attivo inseriamo gli effetti hover*/
+    button.filterButton.apply-button:hover{
+        background-color: green;
+    }
+
+    button.filterButton.close-button:hover{
+        background-color: #c2423d;
+    }
+
+    .filter-dropdown:hover{
+        color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+@media screen and (min-width: 451px) and (max-width: 700px){
+    button.filterButton, .filter-textbox, #errorMessage{
+        font-size: 70%;
+    }
+
+    .edit-filter-modal {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 701px) and (max-width: 800px){
+    .filter-textbox, #errorMessage {
+        font-size: 85%;
+    }
+}
+
+@media screen and (min-width: 801px) and (max-width: 950px){
+    .filter-textbox, #errorMessage {
+        font-size: 93.5%;
+    }
+}
+
+@media screen and (min-width: 951px){
+    .filter-textbox, #errorMessage{
+        font-size: 100%;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 700px){
+    .edit-filter-modal {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 450px){
+    button.filterButton{
+        font-size: 60%;
+    }
+
+    .edit-filter-modal .filter-textbox{
+        font-size: 70%;
+    }
+
+    .edit-filter-modal {
+        width: 50%;
+        transform: translate(50%, -40%);
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .edit-filter-modal {
+        transform: translate(50%, -30%);
+    }
+
+    .edit-filter-modal .filter-textbox{
+        font-size: 65%;
+    }
+}
+
+@media screen and (min-width: 950px){
+    button.filterButton{
+        padding: 4% 1%;
+        font-size: 120%;
+    }
+}
+/*Filter modal fine*/
+
+/*Styling search space inizio*/
+.search-space{
+    padding: 2% 10%;
+}
+
+.search-space .filter-textbox{
+
+}
+
+.search-space h3 {
+    text-align: center;
+}
+
+.search-space .filter-textbox i {
+    font-size: 150%;
+    margin-right: 10px;
+}
+
+.search-space .filter-textbox label {
+    position: relative;
+    margin-left: 12px;
+}
+
+.search-space .filter-textbox input[type=checkbox]:checked, .sortCheckbox:checked{
+    pointer-events: none;
+}
+
+@media screen and (max-width: 600px){
+    .search-space{
+        padding: 2% 0;
+    }
+}
+
+/*Styling search space fine*/
+
+/*Course info styling inizio*/
+.courseInfo {
+    max-height: 40%;
+    position: relative;
+}
+
+.courseInfo p {
+    text-align: justify;
+    overflow: auto;
+    word-wrap: break-word; /*fa sì che quando il testo è troppo lungo si vada a capo*/
+    max-height: inherit;
+}
+
+.addToCartAndTeacherBtnContainer {
+    width: 100%;
+}
+
+.addToCartAndTeacherBtnContainer > span{
+    display: inline-block;
+    float: right;
+    font-size: large;
+    font-weight: bold;
+    margin: 2.3% 0 0 0;
+    padding: 2%;
+}
+
+.addToCartAndTeacherBtnContainer .teacherName > i{
+    font-size: 150%;
+}
+
+.addToCartAndTeacherBtnContainer .teacherName{
+    float: left;
+}
+
+.addToCartAndTeacherBtnContainer .teacherName a{
+    display: inline-block;
+    color: lightgrey;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 3px;
+    padding: 14px 16px;
+    font-size: 115%;
+}
+
+.addToCartAndTeacherBtnContainer .addToCartBtn{
+    color: forestgreen;
+    font-size: 150%;
+    position: relative;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    margin-top: 1.7%;
+    margin-right: 20px;
+}
+
+@media (hover: hover) and (any-hover: hover) { /*se hover è attivo inseriamo gli effetti hover*/
+    .addToCartAndTeacherBtnContainer .addToCartBtn:hover, .addToCartAndTeacherBtnContainer .teacherName a:hover {
+        background-color: #404040;
+    }
+
+    .addToCartAndTeacherBtnContainer .addToCartBtn:active, .addToCartAndTeacherBtnContainer .teacherName a:active {
+        background-color: #505050;
+    }
+}
+
+@media (hover: none) and (any-hover: none) { /*altrimenti non inseriamoli*/
+    .addToCartAndTeacherBtnContainer .addToCartBtn:active, .addToCartAndTeacherBtnContainer .teacherName a:active {
+        background-color: #404040;
+    }
+}
+/*Course info styling fine*/
+
+/*Courses results CSS fine*/
+
+/*Categories results inizio*/
+.catList {
+    padding: 5%;
+}
+
+.catList .category-result-box{
+    color: lightgrey;
+    list-style-type: none;
+    margin: 0 0 25% 0;
+    width: 100%;
+    min-height: 10%;
+    max-height: 100%;
+    display: block;
+}
+
+.categoryInfo, .teacherCurriculum {
+    max-height: 40%;
+    position: relative;
+}
+
+.categoryInfo p, .teacherCurriculum p {
+    text-align: justify;
+    overflow: auto;
+    word-wrap: break-word; /*fa sì che quando il testo è troppo lungo si vada a capo*/
+    max-height: inherit;
+}
+
+.catList button {
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: 20%;
+    min-height: 40px;
+    padding: 0;
+    background: rgba(48, 48, 48, .5);
+    border: none;
+    border-bottom: 5px solid forestgreen;
+    transition: background-color 0.3s;
+    font-size: large;
+    font-weight: bold;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.catList button:hover {
+    background: rgba(23, 18, 48, .5);
+}
+
+@media screen and (max-width: 342px) {
+    div.catList{
+        margin: 0 1% 30% 1%;;
+        width: auto;
+    }
+
+    .catList .buttonform{
+        height: 30%;
+    }
+
+    .catList .category-result-box p{
+        font-size: 90%;
+    }
+}
+
+@media screen and (min-width: 343px) and (max-width: 600px){
+    div.catList{
+        margin: 0 1% 20% 1%;
+        width: auto;
+    }
+
+    .catList .buttonform{
+        height: 30%;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px){
+    .catList .buttonform{
+        height: 30%;
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1100px){
+    .catList .buttonform{
+        height: 35%;
+    }
+}
+
+@media screen and (min-width: 1101px){
+
+    .catList .category-result-box p{
+        font-size: 120%;
+    }
+
+    .catList .buttonform button span{
+        font-size: xx-large;
+    }
+
+    .catList .buttonform{
+        min-height: 60%;
+    }
+}
+/*Categories results fine*/

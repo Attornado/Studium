@@ -1,0 +1,567 @@
+/*Admin Area inizio*/
+.admin-body {
+    color: lightgray;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: url("../resources/images/backgroundLogin.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.admin-header{
+    margin-left: 10%;
+    font-size: 180%;
+    width: 76%;
+    border-bottom: 6px solid forestgreen;
+    text-align: center;
+}
+
+#left-box-list{
+    list-style-type: none;
+    margin: 0;
+}
+
+.left-box-item{
+    margin-left: -10%;
+}
+
+.admin-button{
+    background-color: transparent;
+    margin-top: 10%;
+    height: 5%;
+    width: 90%;
+    color: lightgray;
+    border: none;
+    border-left: 5px solid forestgreen;
+    max-height: 50px;
+    min-height: 40px;
+}
+
+.admin-button:hover{
+    background-color: #404040;
+}
+
+.admin-button i{
+    float: left;
+    font-size: 17px;
+}
+
+#left{
+    float: left;
+    position: fixed;
+    background-color: #222222;
+    height: 200%;
+}
+
+#adminPage{
+    position: relative;
+    overflow: visible;
+}
+
+#mobileAdminButtonContainer{
+    display: none;
+    width: 100%;
+    height: 8.5%;
+    max-height: 60px;
+    background-color: #1a1a1a;
+    margin: 0;
+}
+
+#mobileAdminButton{
+    float: left;
+    position: relative;
+    font-size: 200%;
+    background-color: inherit;
+    height: 100%;
+    border: none;
+    color: forestgreen;
+}
+
+@media only screen and (hover: hover) and (any-hover: hover) {
+    #mobileAdminButton:hover{
+        background-color: #404040;
+    }
+
+    #mobileAdminButton:active{
+        background-color: #505050;
+    }
+}
+
+@media only screen and (hover: none) and (any-hover: none) {
+    #mobileAdminButton:active{
+        background-color: #404040;
+    }
+}
+
+
+.manage-header-student, .manage-header-course, .manage-header-teacher, .manage-header-admin, .manage-header-category{
+    border-bottom: 4px solid forestgreen;
+    margin-left: 30%;
+    margin-top: 10%;
+}
+
+.admin-textbox{
+    width: 45%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom: 1px solid forestgreen;
+    margin-left: 27%;
+    /*background-color: #c75450;*/
+}
+
+.admin-textbox input, textarea{
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 18px;
+    width: 95%;
+    float: left;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.admin-textbox textarea{
+}
+
+.admin-fieldset{
+    width: 75%;
+    margin-left: 20%;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3%;
+    margin-right: 0;
+    background: rgba(48, 48, 48, 0.5) radial-gradient(black, transparent);
+    padding: 2%;
+}
+
+.table-div{
+    -ms-overflow-style: none;
+    overflow: auto;
+    float: none;
+    text-align: center;
+    text-align: -moz-center;
+    text-align: -webkit-center;
+}
+
+.table-div::-webkit-scrollbar{
+    display: none;
+}
+
+.btnAdmin{
+    width: 25%;
+    background: none;
+    border: 2px solid forestgreen;
+    color: white;
+    font-size: 112%;
+    cursor: pointer;
+}
+
+.btnAdmin:hover{
+    background-color: #404040;
+}
+
+.left-box-item button.current{
+    background-color: forestgreen;
+}
+
+.left-box-item button.current:hover{
+    background-color: green;
+}
+
+#description, #curriculum, #description_category{
+    width: 80%;
+    height: 30%;
+    resize: none;
+    margin-left: 10%;
+    text-align: left;
+    border: forestgreen 1px solid;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+#curriculum-label, #description-label{
+    margin-right: 20px;
+}
+
+.content-table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr{
+    background-color: forestgreen;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+
+}
+
+.content-table th, .content-table td{
+    padding: 12px 15px;
+}
+
+.content-table tbody tr{
+    border-bottom: 1px solid #292929;
+}
+
+.content-table tbody tr:nth-of-type(even){
+    background-color: #292929;
+}
+
+.content-table tbody tr:last-of-type{
+    border-bottom: 2px solid forestgreen;
+}
+
+#submitAdminButtonContainerRemoveStudent > input[disabled],
+#submitAdminButtonContainerAddCourse > input[disabled],
+#submitAdminButtonContainerRemoveCourse > input[disabled],
+#submitAdminButtonContainerAddCategory > input[disabled],
+#submitAdminButtonContainerRemoveCategory > input[disabled],
+#submitAdminButtonContainerAddTeacher > input[disabled],
+#submitAdminButtonContainerAddAdmin > input[disabled],
+#submitAdminButtonContainerRemoveAdmin > input[disabled]{
+    pointer-events: none;
+}
+
+.paginationStudents, .paginationTeachers, .paginationCategories, .paginationCourses, .paginationAdmins{
+    display: inline-block;
+}
+
+.paginationStudents span, .paginationCourses span, .paginationTeachers span, .paginationCategories span,
+.paginationAdmins span{
+    display: none;
+    cursor: pointer;
+}
+
+.paginationStudents span.visible, .paginationCourses span.visible, .paginationTeachers span.visible,
+.paginationCategories span.visible, .paginationAdmins span.visible{
+    display: unset;
+}
+
+
+@media screen and (min-width: 1501px) {
+    #left{
+        width: 15.2%;
+    }
+
+    .manage-header-student{
+        width: 15%;
+        font-size: 200%;
+    }
+
+    .manage-header-course{
+        width: 14%;
+        font-size: 200%;
+    }
+
+    .manage-header-teacher{
+        width: 15%;
+        font-size: 200%;
+    }
+
+    .manage-header-admin{
+        width: 14%;
+        font-size: 200%;
+    }
+
+    .manage-header-category{
+        width: 16%;
+        font-size: 200%;
+    }
+}
+
+@media screen and (min-width: 1295px) and (max-width: 1500px){
+    #left{
+        width: 15%;
+    }
+
+    .manage-header-student{
+        width: 9%;
+        font-size: 180%;
+    }
+
+    .manage-header-course{
+        width: 10%;
+        font-size: 180%;
+    }
+
+    .manage-header-teacher{
+        width: 11%;
+        font-size: 180%;
+    }
+
+    .manage-header-admin{
+        width: 9%;
+        font-size: 180%;
+    }
+
+    .manage-header-category{
+        width: 10%;
+        font-size: 180%;
+    }
+}
+
+@media screen and (min-width: 1101px) and (max-width: 1294px){
+    #left{
+        width: 17%;
+    }
+
+    .manage-header-student{
+        width: 9%;
+        font-size: 160%;
+    }
+
+    .manage-header-course{
+        width: 15%;
+        font-size: 160%;
+    }
+
+    .manage-header-teacher{
+        width: 20.6%;
+        font-size: 160%;
+    }
+
+    .manage-header-admin{
+        width: 16%;
+        font-size: 160%;
+    }
+
+    .manage-header-category{
+        width: 12%;
+        font-size: 160%;
+    }
+}
+
+@media screen and (min-width: 831px) and (max-width: 1100px){
+    #left{
+        width: 19%;
+    }
+
+    .manage-header-student{
+        width: 11%;
+        font-size: 160%;
+    }
+
+    .manage-header-course{
+        width: 12%;
+        font-size: 160%;
+    }
+
+    .manage-header-teacher{
+        width: 13%;
+        font-size: 160%;
+    }
+
+    .manage-header-admin{
+        width: 11%;
+        font-size: 160%;
+    }
+
+    .manage-header-category{
+        width: 13%;
+        font-size: 160%;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 830px){
+    #left{
+        width: 20%;
+    }
+
+    .manage-header-student{
+        width: 12%;
+        font-size: 140%;
+    }
+
+    .manage-header-course{
+        width: 13%;
+        font-size: 140%;
+    }
+
+    .manage-header-teacher{
+        width: 15%;
+        font-size: 140%;
+    }
+
+    .manage-header-admin{
+        width: 13%;
+        font-size: 140%;
+    }
+
+    .manage-header-category{
+        width: 15%;
+        font-size: 140%;
+    }
+}
+
+@media screen and (max-width: 600px){
+    #adminPage{
+        display: none;
+        transition-property: display;
+        transition-duration: 2s;
+    }
+
+    #adminPage.toShow{
+        display: block;
+    }
+
+    #left{
+        width: fit-content;
+        height: 100%;
+        position: fixed;
+        z-index: 100;
+        top: auto;
+        bottom: 0;
+    }
+
+    #mobileAdminButtonContainer{
+        display: block;
+    }
+
+    .manage-header-student{
+        width: 18%;
+        font-size: 120%;
+    }
+
+    .manage-header-course{
+        width: 18%;
+        font-size: 120%;
+    }
+
+    .manage-header-teacher{
+        width: 20%;
+        font-size: 120%;
+    }
+
+    .manage-header-admin{
+        width: 18%;
+        font-size: 120%;
+    }
+
+    .manage-header-category{
+        width: 18%;
+        font-size: 120%;
+        margin-left: 20%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .admin-fieldset{
+        width: 80%;
+        margin: auto 15% 3% 11.5%;
+        overflow: auto;
+    }
+}
+
+/*Search bar admin inizio*/
+.searchBarAdminContainer button{
+    text-align: right;
+    border: none;
+    color: forestgreen;
+    background-color: #222222;
+    transition: background-color 0.3s;
+    padding: 6px 10px;
+    font-size: 100%;
+    height: 30.4px;
+    transform: translateX(-4px);
+}
+
+.searchBarAdminContainer input[type=text]{
+    border: none;
+    background-color: #373737;
+    color: lightgray;
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 100%;
+}
+/*Search bar admin fine*/
+
+.removeAdminAdminButton, .removeStudentAdminButton, .removeTeacherAdminButton, .removeCategoryAdminButton,
+.removeCourseAdminButton{
+    background: none;
+    outline: none;
+    border: none;
+    color: #c75450;
+    font-weight: bold;
+    font-size: 150%;
+    border-radius: 2px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+@media screen and (hover: hover) and (any-hover: hover) {
+    .removeAdminAdminButton:hover, .removeStudentAdminButton:hover, .removeTeacherAdminButton:hover,
+    .removeCategoryAdminButton:hover, .removeCourseAdminButton:hover {
+        background-color: #c75450;
+        color: white;
+    }
+
+    .removeAdminAdminButton:active, .removeStudentAdminButton:active, .removeTeacherAdminButton:active,
+    .removeCategoryAdminButton:active, .removeCourseAdminButton:active {
+        background-color: #ce6764;
+        color: white;
+    }
+}
+
+@media screen and (hover: none) and (any-hover: none) {
+    .removeAdminAdminButton:active, .removeStudentAdminButton:active, .removeTeacherAdminButton:active,
+    .removeCategoryAdminButton:active, .removeCourseAdminButton:active {
+        background-color: #c75450;
+        color: white;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .admin-textbox {
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .admin-textbox {
+        width: 87%;
+        margin-left: 5%;
+    }
+}
+
+.changeCategoryAdminButton, .changeCourseAdminButton{
+    border: none;
+    outline: none;
+    background-color: inherit;
+    color: lightgrey;
+    padding: 4px 6px;
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 180%;
+}
+
+@media screen and (hover: hover) and (any-hover: hover){
+    .changeCategoryAdminButton:hover, .changeCourseAdminButton:hover{
+        background-color: #343a40;
+    }
+
+    .changeCategoryAdminButton:active, .changeCourseAdminButton:active{
+        background-color: #454d54;
+    }
+}
+
+@media screen and (hover: none) and (any-hover: none){
+    .changeCategoryAdminButton:active, .changeCourseAdminButton:active{
+        background-color: #343a40;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    .admin-fieldset {
+        margin-left: 14%;
+    }
+}
+/*Admin Area fine*/

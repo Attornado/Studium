@@ -1,0 +1,101 @@
+/* Error Page styling inizio */
+@import url("https://fonts.googleapis.com/css?family=Bevan");
+
+.main-content * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body.errorPageBody {
+    background: rgb(40, 40, 40);
+    word-wrap: break-word;
+}
+
+.errorParagraph {
+    font-family: "Bevan", cursive;
+    cursor: context-menu;
+    user-select: none;
+    font-size: 130px;
+    margin: 10vh 0 0;
+    text-align: center;
+    letter-spacing: 5px;
+    background-color: black;
+    color: transparent;
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.1);
+    -webkit-background-clip: text;
+    /*-moz-background-clip: text;
+    background-clip: text;*/
+}
+
+.errorParagraph span {
+    font-size: 1.2em;
+}
+
+.main-content .code-block{
+    line-height: 3;
+}
+
+code {
+    color: #bdbdbd;
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    margin: 0 30px 25px;
+}
+
+code span {
+    color: #f0c674;
+}
+
+code i {
+    color: #b5bd68;
+}
+
+code em {
+    color: #b294bb;
+    font-style: unset;
+}
+
+code b {
+    color: #81a2be;
+    font-weight: 500;
+}
+
+.home-link {
+    text-align: center;
+}
+
+.home-link a {
+    color: #8abeb7;
+    font-family: monospace;
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: underline;
+    margin-top: 10px;
+    display:inline-block;
+    transition: color 0.3s;
+}
+
+@media screen and (hover: hover) and (any-hover: hover){
+    .home-link a:hover{
+        color: #9cc9c3;
+    }
+
+    .home-link a:active{
+        color: #add2cd;
+    }
+}
+
+@media screen and (hover: none) and (any-hover: none){
+    .home-link a:active{
+        color: #9cc9c3;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .errorParagraph{
+        font-size: 14vw;
+    }
+}
+/* Error Page styling fine */

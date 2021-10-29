@@ -1,0 +1,930 @@
+body {
+    background-color: #303030;
+    color: lightgray;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*Popup box styling inizio*/
+.popupBox {
+    padding: 20px;
+    color: white;
+    position: fixed;
+    margin: 0 1% 0 1%;
+    z-index: 1001;
+    background-color: cornflowerblue;
+    bottom: 10px; /*posizionato a 10px dal fondo pagina*/
+    left: 0;
+    right: 0;
+    display: none;
+    visibility: hidden;
+}
+
+.popupBox.visible {
+    display: block;
+    visibility: visible;
+}
+
+.popupBox.error-popup {
+    background-color: #c75450;
+}
+
+.popupBox.success-popup {
+    background-color: #4CAF50;
+}
+
+.popupBox.warning-popup {
+    background-color: #ff9800;
+}
+
+.popupBox.notice-popup {
+    background-color: cornflowerblue;
+}
+
+.popupBox .type{
+    visibility: hidden; /*Nascondiamo l'elemento e lo sostituiamo con il suo ::after*/
+}
+
+.popupBox .type::after {
+    visibility: visible;
+    top: 0;
+    left: 0;
+}
+
+.popupBox.success-popup .type::after {
+    content: "Success: ";
+}
+
+.popupBox.error-popup .type::after {
+    content: "Error: ";
+}
+
+.popupBox.warning-popup .type::after {
+    content: "Warning: ";
+}
+
+.popupBox.notice-popup .type::after {
+    content: "Notice: ";
+}
+
+.popupBox .closeButton {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 200%;
+    line-height: 18px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.popupBox .closeButton:hover {
+    color: black;
+}
+/*Popup box styling fine*/
+
+/*CSS header inizio*/
+#header{
+    float: left;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 999;
+}
+
+#navigationMenuList{
+    list-style-type: none;
+    margin: 0;
+    background-color: #222222;
+}
+
+nav {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    overflow: visible;
+    background-color: #222222;
+    top: 0;
+    margin: 0;
+    width: 100%;
+}
+
+li.navbar {
+    float: left;
+    display: inline-block;
+    margin-right: 9.4%;
+}
+
+li.navbar a{
+    display: inline-block;
+    color: lightgrey;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    padding: 14px 16px;
+}
+
+.current, .dropdown-content button.current{
+    background-color: forestgreen;
+}
+
+button{
+    cursor: pointer;
+    outline: none;
+}
+
+li.navbar a:active, nav button:active, #searchBarContainer button:active, #cartContainer button:active,
+.moreCategoriesButton:active, .moreResultsButton:active{
+    background-color: #505050;
+}
+
+@media (hover: hover) and (any-hover: hover){
+    li.navbar a:hover, nav button:hover, #searchBarContainer button:hover, #cartContainer button:hover,
+    .moreCategoriesButton:hover, .moreResultsButton:hover{
+        background-color: #404040;
+    }
+
+    li.navbar a.current:hover, li.navbar button.current:hover{
+        background-color: green;
+    }
+}
+
+/*Search Bar Style inizio(va reso responsive) */
+li.searchBar{
+    margin-right: 0;
+}
+
+#searchBarContainer{
+    display: inline-block;
+    border: none;
+    padding: 0;
+    width: inherit;
+    height: fit-content;
+}
+
+@media screen and (min-width: 1306px){
+    #searchBarContainer form {
+        margin: 0;
+    }
+}
+
+#searchBarContainer input[type=text] {
+    border: none;
+    background-color: #373737;
+    color: lightgray;
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 100%;
+}
+
+#searchBarContainer button {
+    float: right;
+    text-align: right;
+    border: none;
+    color: forestgreen;
+    background-color: #222222;
+    transition: background-color 0.3s;
+    padding: 6px 10px;
+    margin-top: 8px;
+    font-size: 100%;
+    height: 30.4px;
+}
+
+#searchItems.current {
+    background-color: forestgreen;
+    color: lightgray;
+}
+
+@media screen and (hover: hover) and (any-hover: hover) {
+    #searchItems.current:hover{
+        background-color: #239023;
+    }
+
+    #searchItems.current:active{
+        background-color: #28a428;
+    }
+}
+
+@media screen and (hover: none) and (any-hover: none) {
+    #searchItems.current:active {
+        background-color: #239023;
+    }
+}
+
+/* Async search results styling inizio */
+.async-results-container{
+    display: none;
+    position: absolute;
+    background-color: #222222;
+    min-height: 30px;
+}
+
+.async-results-list{
+    -ms-overflow-style: none;
+    max-height: 245px;
+    overflow: auto;
+}
+
+.async-results-list::-webkit-scrollbar{ /*Nascondi la scrollbar in chrome*/
+    display: none;
+}
+
+.async-results-container.visible{
+    display: block;
+}
+
+.async-result {
+    text-align: left;
+    overflow: auto;
+    word-wrap: break-word; /*fa sì che quando il testo è troppo lungo si vada a capo*/
+    max-height: inherit;
+    cursor: pointer;
+    border-left-color: forestgreen;
+    border-width: 0 0 0 5px;
+    border-style: solid;
+
+}
+
+.async-results a {
+    outline: none;
+    text-decoration: none;
+    float: left;
+    width: 100%;
+}
+
+li.navbar  a.async-results-link:hover {
+    background-color: unset;
+}
+
+.moreResultsButton{
+    width: 100%;
+    display: inline-block;
+    height: 25px;
+    padding-top: 1px;
+    font-size: 150%;
+    cursor: pointer;
+}
+
+@media screen and (hover: hover) and (any-hover: hover) {
+    .async-result:hover {
+        background-color: #404040;
+    }
+
+    .async-result:active {
+        background-color: #505050;
+    }
+}
+
+@media screen and (hover: none) and (any-hover: none) {
+    .async-result:active {
+        background-color: #404040;
+    }
+}
+/* Async search results styling fine */
+/*Search Bar Style fine*/
+
+/*Dropdown Menu inizio*/
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content ul{
+    list-style-type: none;
+}
+
+.dropdown-content {
+    position: absolute;
+    color: lightgrey;
+    display: none;
+    text-align: center;
+    background-color: #222222;
+    opacity: 100%;
+    z-index: 999; /* serve a far apparire il contentuto in sovraimpressione */
+    padding: 10% 0 0 0;
+    margin: 0;
+    font-size: 90%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /*ombreggiatura*/
+    min-width: 170%;
+    transition: display 0.3s;
+}
+
+#userAreaDropdown .dropdown-content{
+    min-width: 120%;
+}
+
+.dropdown-content li{
+    display: block;
+    float: left;
+    text-align: center;
+    width: 100%;
+    height: 30%;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content button{
+    text-align: left;
+    display: block;
+    color: lightgray;
+    font-size: 100%;
+    background-color: #222222;
+    margin: 0;
+    width: 100%;
+    border-left-color: forestgreen;
+    border-width: 0 0 0 5px;
+    transition: background-color 0.3s;
+    height: 40px; /*evnetualmente responsive con media query*/
+}
+
+.dropdown-content a{
+    transition: background-color 0.3s;
+}
+
+.dropdown:hover .dropdown-content, #reservedArea:hover .dropdown-content, .dropdown-content.toShow{
+    display: block;
+    z-index: 9999;
+}
+
+.dropdown-content a:hover{
+    background-color: #404040;
+}
+
+#logoutBtn{
+    border-color: #c75450;
+    font-weight: bold;
+}
+
+#logoutBtn > i{
+    color: #c75450;
+}
+
+.moreCategoriesButton {
+    width: 100%;
+    display: inline-block;
+    height: 25px;
+    padding-top: 1px;
+    font-size: 150%;
+    cursor: pointer;
+}
+
+.scroll-dropdown-content {
+    overflow: auto;
+    max-height: 245px;
+    -ms-overflow-style: none; /*Nascondi la scrollbar in edge e explorer */
+}
+
+.scroll-dropdown-content::-webkit-scrollbar{ /*Nascondi la scrollbar in edge*/
+    display: none;
+}
+
+/*Dropdown Menu fine*/
+
+/*Mobile menu button inizio*/
+#mobileMenuButtonContainer{
+    display: none;
+    width: 100%;
+    height: 8.5%;
+    background-color: #222222;
+    margin: 0;
+    min-height: 45px;
+    max-height: 60px;
+}
+
+#mobileMenuButtonContainer button{
+    float: left;
+    position: relative;
+    font-size: 200%;
+    background-color: inherit;
+    transition: background-color 0.3s;
+    height: 100%;
+    border: none;
+    color: forestgreen;
+}
+
+@media (hover: hover) and (any-hover: hover){ /*se ci troviamo su desktop, attiviamo l'effetto hover*/
+    #mobileMenuButtonContainer button:hover{
+        background-color: #404040;
+    }
+
+    #mobileMenuButtonContainer button:active{
+        background-color: #505050;
+    }
+}
+
+@media screen and (hover: none) and (any-hover: none){ /*se ci troviamo su mobile, disattiviamo l'effetto hover*/
+    #mobileMenuButtonContainer button:active{
+        background-color: #404040;
+    }
+}
+/*Mobile menu button fine*/
+
+/*Cart inizio*/
+#cartContainer form{
+    margin: 0;
+}
+
+#cartContainer button{
+    position: relative;
+    color: forestgreen;
+    background-color: #222222;
+    transition: background-color 0.3s;
+    font-size: 150%;
+    margin-top: 0;
+    width: 200%;
+    border: none;
+    height: 46px;
+}
+
+#cartContainer button.current {
+    background-color: forestgreen;
+    color: lightgray;
+}
+
+#cartContainer button.current:hover{
+    background-color: green;
+}
+/*Cart fine*/
+
+/*Return up button inizio*/
+#scrollUpBtn{
+    display: inline-block;
+    background-color: rgba(48, 48, 48, 0.4);
+    color: lightgray;
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 10px;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s, opacity .5s, visibility .5s;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1000;
+}
+
+#scrollUpBtn.toShow{
+    visibility: visible;
+    opacity: 0.55;
+}
+
+@media (hover: hover) and (any-hover: hover){ /*se ci troviamo su desktop, attiviamo l'effetto hover*/
+    #scrollUpBtn.toShow:hover{
+        cursor: pointer;
+        background-color: rgba(64, 64, 64, 0.4);
+        opacity: 1;
+    }
+
+    #scrollUpBtn.toShow:active{
+        background-color: rgba(80, 80, 80, 0.4);
+    }
+}
+
+@media screen and (hover: none) and (any-hover: none){ /*se ci troviamo su mobile, disattiviamo l'effetto hover*/
+    #scrollUpBtn.toShow:active{
+        background-color: rgba(80, 80, 80, 0.4);
+        opacity: 1;
+    }
+}
+/*Return up button fine*/
+
+/*Media query header inizio */
+@media screen and (min-width: 1501px) {
+    #header{
+        width: 100%;
+        max-height: 20%;
+        min-height: 45px;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 720px){
+    li.cart{
+        margin-right: 8.5%;
+    }
+}
+
+@media screen and (max-width: 600px){
+    #header{
+        width: 100%;
+    }
+
+    #header nav{
+        display: none;
+        transition-property: display;
+        transition-duration: 2s;
+    }
+
+    #header nav.toShow{
+        display: block;
+    }
+
+    li.navbar {
+        float: none;
+        display: block;
+    }
+
+    #cartContainer button{
+        width: 25%;
+    }
+
+    #mobileMenuButtonContainer{
+        display: block;
+    }
+}
+/*Media query header fine*/
+/*CSS header fine*/
+
+/*Login form inizio*/
+body.login{
+    margin: 0;
+    padding: 0;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    background: url("../resources/images/backgroundLogin.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.login-header{
+    float: left;
+    font-size: 200%;
+    border-bottom: 6px solid forestgreen;
+    margin-bottom: 7%;
+    padding: 7px 0;
+}
+
+.login-fieldset{
+    position: relative;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    background: rgba(48, 48, 48, .5);
+}
+
+.login-textbox{
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom: 1px solid forestgreen;
+}
+
+.login-textbox i{
+    width: 26px;
+    float: left;
+    text-align: center;
+}
+
+.login-textbox input{
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 100%;
+    float: left;
+    margin: 0 10px;
+}
+
+.btn, #fromSignInToSignUp{
+    width: 100%;
+    background: none;
+    border: 2px solid forestgreen;
+    color: white;
+    padding: 5px;
+    font-size: 112%;
+    cursor: pointer;
+    margin: 12px 0;
+}
+
+#fromSignInToSignUp{
+    width: 30%;
+    font-size: 90%;
+    display: inline;
+    float: left;
+    margin-left: 35%;
+}
+
+.btn:hover, #fromSignInToSignUp:hover{
+    border: 2px solid darkgreen;
+    background: rgba(48, 48, 48, .9);
+}
+
+.login-fieldset i.showPasswordBtn{
+    float: right;
+}
+
+span.Error{
+    color: #c75450;
+    display: none;
+}
+
+span.Error.toShow{
+    display: inline;
+}
+
+.login-p{
+    text-align: center;
+}
+
+#submitLoginButtonContainer{
+    margin : 0;
+    padding:  0;
+    border : 0;
+}
+
+#submitLoginButtonContainer > input[disabled]{ /*serve a far sì che il contenitore possa reagire agli eventi del mouse*/
+   pointer-events: none;
+}
+
+/*Media query Login form inizio*/
+@media screen and (min-width: 1550px){
+    .login-fieldset{
+        width: 15%;
+    }
+}
+
+@media screen and (min-width: 1491px) {
+    .login-fieldset{
+        width: 20%;
+        top: 38%;
+     }
+
+    .login-textbox input{
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 1301px) and (max-width: 1490px){
+    .login-fieldset{
+        width: 22.5%;
+        top: 30%;
+    }
+
+    .login-textbox input{
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 991px) and (max-width: 1300px){
+    .login-fieldset{
+        width: 25.5%;
+        top: 30%;
+    }
+
+    .login-textbox input{
+        width: 67%;
+    }
+}
+
+@media screen and (min-width: 821px) and (max-width: 990px){
+    .login-fieldset{
+        width: 30%;
+        top: 30%;
+    }
+
+    .login-textbox input{
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 721px) and (max-width: 820px){
+    .login-fieldset{
+        width: 35%;
+        top: 30%;
+    }
+
+    .login-textbox input{
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 720px){
+    .login-fieldset{
+        width: 40%;
+        top: 260px;
+    }
+
+    .login-textbox input{
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 551px) and (max-width: 600px){
+    .login-fieldset{
+        width: 45%;
+        top: 240px;
+    }
+
+    .login-textbox input{
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 451px) and (max-width: 550px){
+    .login-fieldset{
+        width: 53.5%;
+        top: 240px;
+    }
+
+    .login-textbox input{
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 401px) and (max-width: 450px){
+    .login-fieldset{
+        width: 60%;
+        top: 240px;
+    }
+
+    .login-textbox input{
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 351px) and (max-width: 400px){
+    .login-fieldset{
+        width: 70%;
+        top: 240px;
+    }
+
+    .login-textbox input{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 350px){
+    .login-fieldset{
+        top: 240px;
+        width: 75%;
+    }
+
+    .login-textbox input{
+        width: 70%;
+    }
+}
+/*Media query Login form fine*/
+/*Login form fine*/
+
+/*Signup form inizio*/
+body.signup{
+    margin: 0;
+    padding: 0;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    background: url("../resources/images/backgroundSignUp.jpeg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.signup-header{
+    text-align: center;
+    vertical-align: center;
+    font-size: 200%;
+    border-bottom: 6px solid forestgreen;
+    margin-bottom: 7%;
+    padding-top: 7px;
+    width: 100%;
+    padding-bottom: 5%;
+}
+
+.signup-fieldset{
+    position: relative;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+    border: none;
+    background: rgba(48, 48, 48, .8);
+    margin-bottom: 10%;
+}
+
+.signup-textbox{
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom: 1px solid forestgreen;
+}
+
+.signup-textbox i{
+    width: 26px;
+    float: left;
+    text-align: center;
+}
+
+.signup-textbox input{
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 18px;
+    margin: 0 10px;
+    width: 75%;
+}
+
+.signup-textbox input::placeholder{
+    text-align: center;
+}
+
+.signup-textbox input[type="date"]{
+    color: white;
+    width: 36%;
+    margin-left: 37%;
+}
+
+.signup-textbox i.showPasswordBtn{
+    float: right;
+}
+
+.btn, #fromSignUpToSignIn{
+    width: 100%;
+    background: none;
+    border: 2px solid forestgreen;
+    color: white;
+    padding: 5px;
+    font-size: 112%;
+    cursor: pointer;
+    margin: 12px 0;
+}
+
+#fromSignUpToSignIn{
+    width: 30%;
+    font-size: 90%;
+    display: inline;
+    float: left;
+    margin-left: 35%;
+}
+
+.btn:hover, #fromSignUpToSignIn:hover{
+    border: 2px solid darkgreen;
+    background: rgba(48, 48, 48, .9);
+}
+
+#fromSignInToSignUpParagraph{
+    text-align: center;
+}
+
+#submitSignUpButtonContainer > input[disabled]{ /*serve a far sì che il contenitore possa reagire agli eventi del mouse*/
+    pointer-events: none;
+}
+
+/*media query signup form inizio*/
+@media screen and (min-width: 1501px) {
+    .signup-fieldset{
+        top: 60%;
+        width: 30%;
+    }
+
+    .signup-textbox{
+        width: 70%;
+        margin-left: 15%;
+    }
+}
+
+@media screen and (min-width: 721px) and (max-width: 1500px){
+    .signup-fieldset{
+        top: 35%;
+        width: 36%;
+    }
+
+    .signup-textbox{
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 720px){
+    .signup-fieldset{
+        top: 50%;
+        width: 40%;
+    }
+
+    .signup-textbox{
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
+@media screen and (min-width: 371px) and (max-width: 600px){
+    .signup-fieldset{
+        top: 30%;
+        width: 70%;
+        margin: 20% 10px 10% 0;
+    }
+
+    .signup-textbox{
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
+@media screen and (max-width: 370px){
+    .signup-fieldset{
+        top: 30%;
+        margin: 20% 10px 10% 0;
+    }
+}
+/*media query signup form fine*/
+/*Signup form fine*/

@@ -1,0 +1,224 @@
+/*CSS carrello inizio*/
+body.cart{
+    margin: 0;
+    padding: 0;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    background: url("../resources/images/forest-background.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.shopping-cart {
+    width: 750px;
+    margin: 80px auto;
+    background: rgba(48, 48, 48, .8);
+    box-shadow: 1px 2px 3px 0 rgba(0,0,0,0.10);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    height: 60px;
+    border-bottom: 1px solid #E1E8EE;
+    padding: 10px 10px 20px 15px;
+    color: lightgray;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.titleText{
+    float: left;
+    font-size: 200%;
+    border-bottom: 6px solid forestgreen;
+    margin-bottom: 7%;
+    padding: 7px 0;
+    font-weight: bold;
+    width: fit-content;
+    height: fit-content;
+}
+
+.cartItem {
+    padding: 20px 30px;
+    height: 120px;
+    display: flex;
+    border-bottom: 1px solid #E1E8EE;
+}
+
+.buttonsContainer {
+    position: relative;
+    padding-top: 30px;
+    margin-right: 40px;
+}
+
+.delete-btn-form{
+    display: inline-block;
+    cursor: pointer;
+    margin: 0;
+    transition: background-color 0.3s ease;
+    padding: 2px;
+    border-radius: 3px;
+}
+
+.delete-btn-form button {
+    background: none;
+    outline: none;
+    border: none;
+    color: #c75450;
+    font-weight: bold;
+    font-size: 150%;
+    transition: color 0.3s ease;
+}
+
+.delete-btn-form:active > button, .delete-btn-form:hover > button{
+    color: white;
+}
+
+.imageContainer {
+    margin-right: 50px;
+    width: 30%;
+}
+
+.imageContainer img {
+    width: 100%;
+}
+
+.genericInfo {
+    padding-top: 10px;
+    margin-right: 40px;
+    width: 35%;
+}
+
+.genericInfo span {
+    display: block;
+    font-size: 14px;
+    color: lightgray;
+    font-weight: 400;
+}
+
+.genericInfo span a, .imageContainer a{
+    text-decoration: none;
+    outline: none;
+    color: lightgrey;
+}
+
+.genericInfo .name, .genericInfo .category {
+    margin-bottom: 5px;
+    font-size: 110%;
+}
+
+.genericInfo .name{
+    font-weight: bold;
+}
+
+.genericInfo span:last-child {
+    font-weight: 300;
+    margin-top: 8px;
+    color: lightgray;
+}
+
+.total-price {
+    width: 83px;
+    padding-top: 27px;
+    text-align: center;
+    font-size: 150%;
+    color: lightgray;
+}
+
+.total-price .number{
+    font-weight: bold;
+}
+
+.price{
+    margin: auto;
+    font-weight: bold;
+    font-size: 105%;
+}
+
+#purchaseFormContainer {
+    padding: 2% 5%;
+    display: block;
+}
+
+.substitutionText{
+    text-align: center;
+}
+
+.purchaseButton{
+    float: right;
+    border: none;
+    outline: none;
+    background: none;
+    color: lightgrey;
+    font-size: 200%;
+    padding: 10px;
+    font-weight: bold;
+    transform: translateY(-45px);
+    transition: background-color 0.3s;
+    border-radius: 3px;
+}
+
+@media screen and (hover: hover) and (any-hover: hover) {
+    .delete-btn-form:hover{
+        background-color: #c75450;
+    }
+
+    .delete-btn-form:active{
+        background-color: #ce6764;
+    }
+
+    .purchaseButton:hover{
+        background-color: forestgreen;
+    }
+
+    .purchaseButton:active{
+        background-color: #28a428;
+    }
+}
+
+@media screen and (hover: none) and (any-hover: none) {
+    .delete-btn-form:active {
+        background-color: #c75450;
+    }
+
+    .purchaseButton:active {
+        background-color: forestgreen;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 800px){
+    .imageContainer{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .shopping-cart {
+        width: 99%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .cartItem {
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .imageContainer, .quantity, .genericInfo {
+        width: 100%;
+        text-align: center;
+        margin: 6px 0;
+    }
+
+    .buttonsContainer {
+        margin: unset;
+        padding: unset;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .purchaseButton{
+        font-size: 150%;
+    }
+}
+/*CSS carrello fine*/

@@ -1,0 +1,74 @@
+.reserved-body{
+    background-color: #303030;
+    color: lightgray;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: url("../resources/images/backgroundLogin.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.reserved-header{
+    width: fit-content;
+    font-size: 200%;
+    border-bottom: 4px solid forestgreen;
+    margin-bottom: 3%;
+}
+
+.reserved-fieldset{
+    margin-left: 10%;
+    margin-right: 5%;
+    margin-top: 2%;
+    width: 75%;
+    align-items: center;
+    text-align: -webkit-center;
+    margin-bottom: 3%;
+    background: rgba(48, 48, 48, 0.5) radial-gradient(black, transparent);
+    padding: 2%;
+    overflow: auto;
+}
+
+.reserved-fieldset::-webkit-scrollbar { /*Nascondi la scrollbar in chrome*/
+    display: none;
+}
+
+.content-table-reserved{
+    border-collapse: collapse;
+    text-align: center;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table-reserved thead tr{
+    background-color: forestgreen;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table-reserved th, .content-table-reserved td{
+    padding: 12px 15px;
+}
+
+.content-table-reserved tbody tr{
+    border-bottom: 1px solid #292929;
+}
+
+.content-table-reserved tbody tr:nth-of-type(even){
+    background-color: #292929;
+}
+
+.content-table-reserved tbody tr:last-of-type{
+    border-bottom: 2px solid forestgreen;
+}
+
+
+
+
+
+
+
+

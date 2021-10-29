@@ -1,0 +1,111 @@
+body.teacherBody{
+    margin: 0;
+    padding: 0;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    background: url("../resources/images/backgroundLogin.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+.container-main{
+    width: 100%;
+    display: block;
+    position: relative;
+    margin: 10% 5%;
+    max-width: 89%;
+}
+.container-main .info-box{
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    border: 3px solid forestgreen;
+    background: rgba(48, 48, 48, .5);
+}
+.container-main .info-box h2{
+    text-align: center;
+}
+.container-main .info-box h4{
+    margin-left: 5%;
+    margin-top: 3%;
+}
+.container-main .curriculum-box{
+    width: 100%;
+    position: relative;
+    border: 3px solid forestgreen;
+    background: rgba(48, 48, 48, .5);
+}
+.container-main .courses-box{
+    width: 40%;
+    position: relative;
+    border: 3px solid forestgreen;
+    margin-left: 2%;
+    background: rgba(48, 48, 48, .5);
+    text-align: center;
+    overflow: auto;
+    overflow-x: hidden;
+    -ms-overflow-style: none; /*Nascondi la scrollbar in edge e explorer*/
+}
+
+.container-main .courses-box::-webkit-scrollbar{ /*Nascondi la scrollbar in chrome*/
+    display: none;
+}
+
+.container-main .courses-box div{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.container-main .courses-box a{
+    color: #1B76FF;
+    text-decoration: none;
+}
+.container-main .courses-box a:hover{
+    color: rgba(89,192,230,0.97);
+}
+.container-main .bottom-box{
+    width: 100%;
+    height: 40%;
+    position: relative;
+    display: inline-flex;
+    margin-top: 7%;
+}
+.container-main .curriculum-box {
+    text-align: justify;
+    overflow: auto;
+    word-wrap: break-word;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+}
+
+.container-main .curriculum-box::-webkit-scrollbar{ /*Nascondi la scrollbar in chrome*/
+    display: none;
+}
+
+.container-main .curriculum-box p{
+    margin-left:2%;
+    margin-right: 2%;
+}
+.container-main .curriculum-box h4{
+    margin-left:2%;
+    margin-right: 2%;
+}
+.container-main .put-text-border{
+    border-bottom: 2px solid forestgreen;
+}
+.container-main .put-name-border{
+    border-bottom: 2px solid #1B76FF;
+}
+@media only screen and (max-width: 450px){
+    .container-main .bottom-box{
+        display: block;
+        height: auto;
+    }
+    .container-main .courses-box{
+        width: 100%;
+        margin: 7% 0% 0% 0%;
+        max-height: 40%;
+    }
+    .container-main .curriculum-box{
+        max-height: 500px;
+    }
+}
+
+
+

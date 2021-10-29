@@ -1,0 +1,433 @@
+body.courseBody{
+    margin: 0;
+    padding: 0;
+    font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+    background: url("../resources/images/backgroundLogin.jpg") no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    text-align: -moz-center;
+    text-align: -webkit-center;
+}
+.container-course-main{
+    display: block;
+    margin-top: 10% ;
+    width: 95%;
+    padding: 0;
+    background-color: rgba(34, 34, 34, 0.7);
+    min-height: 100%;
+    max-width: 700px;
+    text-align: start;
+}
+.container-course-main .container-img-course{
+    width: 100%;
+    height: 57%;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-width: 289px;
+}
+.container-course-main .container-img-course .top-image-section{
+    color: white;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    height: 15%;
+    padding: 0;
+    background: rgba(48, 48, 48, .5);
+    border: none;
+    border-bottom: 5px solid forestgreen;
+    font-size: larger;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+.container-course-main .container-img-course .top-image-section h2{
+    margin:0;
+    margin-top: 1.8%;
+}
+
+.container-course-main .info-course-box{
+    display: block;
+    margin-top: 10%;
+}
+.container-course-main .info-course-box .description-course-box{
+    text-align: justify;
+    overflow: auto;
+    word-wrap: break-word;
+    overflow-x: hidden;
+    border: 3px solid forestgreen;
+    margin: 2%;
+    width: auto;
+    height: 40%;
+    -ms-overflow-style: none;
+}
+
+.container-course-main .info-course-box .description-course-box::-webkit-scrollbar{ /*Nascondi la scrollbar in chrome*/
+    display: none;
+}
+
+.container-course-main .put-border-bottom{
+    border-bottom: 2px solid forestgreen;
+}
+.container-course-main p{
+    margin-left:2%;
+    margin-right: 2%;
+}
+.container-course-main h4{
+    margin-left:2%;
+    margin-right: 2%;
+}
+.addToCartAndTeacherBtnContainer {
+    width: 100%;
+    display: inline-block;
+}
+
+.addToCartAndTeacherBtnContainer > span{
+    display: inline-block;
+    float: right;
+    font-size: large;
+    font-weight: bold;
+    margin: 2.3% 0 0 0;
+    padding: 2%;
+}
+
+.addToCartAndTeacherBtnContainer .teacherName > i{
+    font-size: 150%;
+}
+
+.addToCartAndTeacherBtnContainer .teacherName{
+    float: left;
+    margin: 0;
+    margin-left: 2%;
+    padding: 0;
+}
+
+.addToCartAndTeacherBtnContainer .teacherName a{
+    display: inline-block;
+    color: lightgrey;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 3px;
+    padding: 14px 16px;
+    font-size: 115%;
+}
+
+.addToCartAndTeacherBtnContainer .addToCartBtn{
+    color: forestgreen;
+    font-size: 150%;
+    position: relative;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    margin-top: 1.7%;
+    margin-right: 5%;
+}
+.container-course-main .button-box{
+    display: inline-block;
+    margin: 2%;
+    width: 24%;
+    float: right;
+    text-align: center;
+    text-align: -moz-center;
+    text-align: -webkit-center;
+    transform: translateY(-136%);
+}
+.container-course-main .button-box button{
+    display: block;
+    margin-bottom: 7%;
+    width: 100%;
+    height: 5%;
+    border: 1px solid forestgreen;
+    background-color: #272727;
+    color: white;
+}
+.container-course-main .button-box button:hover{
+    background-color: #343a40;
+}
+.container-course-main .specific-course-info a{
+    text-decoration: none;
+    color: #d3d3d3;
+}
+.container-course-main .specific-course-info a:hover{
+    text-decoration: none;
+    color: #1B76FF;
+}
+
+@media (hover: hover) and (any-hover: hover) { /*se hover è attivo inseriamo gli effetti hover*/
+    .addToCartAndTeacherBtnContainer .addToCartBtn:hover, .addToCartAndTeacherBtnContainer .teacherName a:hover {
+        background-color: #404040;
+    }
+
+    .addToCartAndTeacherBtnContainer .addToCartBtn:active, .addToCartAndTeacherBtnContainer .teacherName a:active {
+        background-color: #505050;
+    }
+}
+
+@media (hover: none) and (any-hover: none) { /*altrimenti non inseriamoli*/
+    .addToCartAndTeacherBtnContainer .addToCartBtn:active, .addToCartAndTeacherBtnContainer .teacherName a:active {
+        background-color: #404040;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    .container-course-main .container-img-course{
+        height: 26%;
+    }
+    .addToCartAndTeacherBtnContainer .teacherName a{
+        font-size: 101%;
+    }
+    .addToCartAndTeacherBtnContainer > span{
+        margin: 0;
+        margin-top: 7%;
+        font-size: medium;
+    }
+    .container-course-main .container-img-course .top-image-section  {
+        margin: 0;
+        font-size: medium;
+        height: fit-content;
+    }
+    .container-course-main .container-img-course .top-image-section h2 {
+        margin: 0;
+    }
+    .addToCartAndTeacherBtnContainer .addToCartBtn {
+        margin-top: 4.7%;
+    }
+}
+@media only screen and (min-width: 451px) and (max-width: 550px) {
+    .container-course-main .container-img-course{
+        height: 37%;
+    }
+}
+@media only screen and (min-width: 551px) and (max-width: 650px) {
+    .container-course-main .container-img-course{
+        height: 45%;
+    }
+}
+@media only screen and (min-width: 651px) and (max-width: 800px) {
+    .container-course-main .container-img-course{
+        height: 52%;
+    }
+}
+@media only screen and (min-height: 750px) and (max-height: 800px) and (min-width: 415px){
+    .container-course-main .container-img-course{
+        height: 51%;
+    }
+    .container-course-main .button-box{
+        transform: translateY(-140%);
+    }
+    .container-course-main .button-box button{
+        height: 5%;
+    }
+}
+@media only screen and (min-height: 801px) and (max-height: 900px) and (min-width: 415px){
+    .container-course-main .container-img-course{
+        height: 45%;
+    }
+    .container-course-main .button-box{
+        transform: translateY(-140%);
+    }
+    .container-course-main .button-box button{
+        height: 5%;
+    }
+}
+@media only screen and (min-height: 901px) and (max-height: 1050px) and (min-width: 415px){
+    .container-course-main .container-img-course{
+        height: 39%;
+    }
+    .container-course-main .button-box{
+        transform: translateY(-140%);
+    }
+    .container-course-main .button-box button{
+        height: 5%;
+    }
+}
+@media only screen and (min-height: 1051px) and (max-height: 1200px) and (min-width: 415px){
+    .container-course-main .container-img-course{
+        height: 34%;
+    }
+    .container-course-main .button-box{
+        transform: translateY(-140%);
+    }
+    .container-course-main .button-box button{
+        height: 5%;
+    }
+}
+@media only screen and (min-height: 1201px) and (max-height: 1400px) and (min-width: 415px){
+    .container-course-main .container-img-course{
+        height: 29%;
+    }
+    .container-course-main .button-box{
+        transform: translateY(-140%);
+    }
+    .container-course-main .button-box button{
+        height: 5%;
+    }
+}
+@media only screen and (min-height: 1401px) and (min-width: 415px){
+    .container-course-main .container-img-course{
+        max-height: 406px;
+    }
+    .container-course-main .button-box{
+        transform: translateY(-140%);
+    }
+    .container-course-main .button-box button{
+        height: 5%;
+    }
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: rgba(28,28,28,0.93);
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: fit-content;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    position: absolute;
+    font-size: 28px;
+    font-weight: bold;
+    transform: translate(290px,-22px);
+}
+
+.close:hover, .close:focus {
+    color: #c75450;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+.content-table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr{
+    background-color: forestgreen;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+
+}
+
+.content-table th, .content-table td{
+    padding: 12px 15px;
+}
+
+.content-table tbody tr{
+    border-bottom: 1px solid #292929;
+}
+
+.content-table tbody tr:nth-of-type(even){
+    background-color: #292929;
+}
+
+.content-table tbody tr:last-of-type{
+    border-bottom: 2px solid forestgreen;
+}
+
+.tableFieldset{
+    padding: 0;
+    border: none;
+    margin-top: 2%;
+}
+
+@media only screen and (max-width: 350px){
+    .modal-content{
+        width: 83%;
+    }
+    .close{
+        transform: translate(265px,-22px);
+    }
+}
+
+.current-page{
+    background: none;
+    color: forestgreen;
+}
+
+.paginationLessons span, .paginationExams span{
+    cursor: pointer;
+    display: none;
+}
+
+.paginationLessons span.visible, .paginationExams span.visible{
+    display: inline-block;
+}
+
+#lessonFieldset h1 {
+    font-size: 175%;
+}
+
+#examFieldset h1 {
+    font-size: 186%;
+}
+
+/*title inizio*/
+body.courseBody #pageTitle{
+    text-align: center;
+    margin-top: 7%;
+    line-height: 1.25;
+    text-transform: uppercase;
+    font-size: 160%;
+    letter-spacing: 0.1em;
+    font-family: 'Raleway', Calibri, Arial, sans-serif;
+}
+
+body.courseBody #pageTitle h1 .thin{
+    font-weight: 200;
+}
+
+@media only screen and (max-width: 768px) {
+    body.courseBody #pageTitle h1{
+        font-size: 130%;
+    }
+}
+/*title fine*/
+
+
+
+
